@@ -34,21 +34,28 @@ $dFontSize: 0.8125rem; //13px
 
 body {
     background-color: $neutral2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #showcase {
-    margin: 5%; 
+    margin: 5%;
 
     display: grid;
-    gap: 10px;
+    gap: 30px;
 }
 
 .card {
     padding: 30px;
     border-radius: 8px;
+    box-shadow: 0px 20px 30px 10px rgba(128, 128, 128, 0.199);
 
     display: grid;
     grid-template-columns: 40px;
+    grid-template-rows: 15px 15px;
 
     &:nth-child(1) {
         background-color: $primary1;
@@ -72,7 +79,7 @@ body {
     }
 
     img{
-        border: 2px solid hsla(0, 0, 100%, 0.2);
+        border: 2px solid hsla(0, 0%, 100%, 0.2);
         border-radius: 100%;
         width: 30px;
 
@@ -88,7 +95,7 @@ body {
     }
 
     blockquote{
-        margin: 20px 0px;
+        margin: 20px 0px 0px 0px;
         @include fontSettings($color: $neutral3);
 
         grid-row: 3/4;
@@ -102,6 +109,32 @@ body {
 
         br {
             line-height: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 970px) {
+    #showcase {
+        max-width: 1100px;
+
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .card {
+        &:nth-child(1) {
+            grid-area: 1/1/2/3;
+        }
+        &:nth-child(2) {
+            grid-area: 1/3/2/4;
+        }
+        &:nth-child(3) {
+            grid-area: 2/1/3/2;
+        }
+        &:nth-child(4) {
+            grid-area: 2/2/3/4;
+        }
+        &:nth-child(5) {
+            grid-area: 1/4/3/5;
         }
     }
 }
